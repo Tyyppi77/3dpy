@@ -2,7 +2,18 @@ import math
 
 
 class vec3f(object):
-    def __init__(self):
+
+    def __init__(self, *args):
+        if len(args) == 1 and type(args[0]) == vec3f:  # Got a vector in arguments
+            self.x = args[0].x
+            self.y = args[0].y
+            self.z = args[0].z
+
+        elif len(args) == 3:  # Got three integers in arguments
+            self.x = args[0]
+            self.y = args[1]
+            self.z = args[2]
+
         self.x = 0.0
         self.y = 0.0
         self.z = 0.0
@@ -67,8 +78,4 @@ def test_02():
     assert v.y == 1.0
     assert v.z == 1.0
 
-
-def test_03():
-    v = vec3f()
-    assert v.length == 0
-    
+print(nose.run())  # Just uses the nose once. This should always print OK
