@@ -40,6 +40,14 @@ class Vec3f(object):
     def dot(self, other):
         return self.x * other.x + self.y * other.y + self.z * other.z
 
+    @staticmethod
+    def cross(self, other):
+        res = vec3f()
+        res.x = self.y * other.z - self.z * other.y
+        res.y = self.z * other.x - self.x * other.z
+        res.z = self.x * other.y - self.y * other.x
+        return res
+
     @property
     def length(self):
         return self.x * self.x + self.y * self.y + self.z * self.z
