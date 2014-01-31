@@ -66,3 +66,9 @@ def test_02():
     assert v.x == 1.0
     assert v.y == 1.0
     assert v.z == 1.0
+
+
+def test_03():
+    v = vec3f()
+    assert v.length == 0
+    
