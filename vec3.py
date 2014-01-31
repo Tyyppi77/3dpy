@@ -1,5 +1,6 @@
 import math
 
+
 class vec3f(object):
     def __init__(self):
         self.x = 0.0
@@ -47,11 +48,13 @@ class vec3f(object):
 
 import nose
 
+
 def test_01():
     v = vec3f()
     assert v.x == 0.0
     assert v.y == 0.0
     assert v.z == 0.0
+
 
 def test_02():
     v1 = vec3f()
