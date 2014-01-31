@@ -1,10 +1,10 @@
 import math
 
 
-class vec3f(object):
+class Vec3f(object):
 
     def __init__(self, *args):
-        if len(args) == 1 and type(args[0]) == vec3f:  # Got a vector in arguments
+        if len(args) == 1 and type(args[0]) == Vec3f:  # Got a vector in arguments
             self.x = args[0].x
             self.y = args[0].y
             self.z = args[0].z
@@ -14,9 +14,10 @@ class vec3f(object):
             self.y = args[1]
             self.z = args[2]
 
-        self.x = 0.0
-        self.y = 0.0
-        self.z = 0.0
+        else:
+            self.x = 0.0
+            self.y = 0.0
+            self.z = 0.0
 
     def __add__(self, other):
         self.x += other.x
@@ -61,15 +62,15 @@ import nose
 
 
 def test_01():
-    v = vec3f()
+    v = Vec3f()
     assert v.x == 0.0
     assert v.y == 0.0
     assert v.z == 0.0
 
 
 def test_02():
-    v1 = vec3f()
-    v2 = vec3f()
+    v1 = Vec3f()
+    v2 = Vec3f()
     v1.x = 1
     v1.y = 1
     v1.z = 1
@@ -77,5 +78,11 @@ def test_02():
     assert v.x == 1.0
     assert v.y == 1.0
     assert v.z == 1.0
+
+
+def test_03():
+    v1 = Vec3f(3, 4, 0)
+    v2 = Vec3f(v1)
+    assert str(v1) == str(v2)
 
 print(nose.run())  # Just uses the nose once. This should always print OK
