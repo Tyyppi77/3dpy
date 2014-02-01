@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from PIL.Image import open as iopen
-
 from OpenGL.GL import *
+
+from PIL.Image import open as iopen
 
 
 class Texure2d(object):
@@ -16,6 +16,13 @@ class Texure2d(object):
         self._id = None
 
         self.load_texture(filename)
+
+    @property
+    def id(self):
+        """
+        Gets the id of the texture
+        """
+        return self._id
 
     def load_texture(self, filename):
         """
@@ -43,10 +50,3 @@ class Texure2d(object):
             GL_RGBA, GL_UNSIGNED_BYTE, texture_data
         )
         return True  # The loading succeeded
-
-    @property
-    def id(self):
-        """
-        Gets the id of the texture
-        """
-        return self._id
