@@ -23,11 +23,11 @@ class Test_01(object):
                 "img/test_texture.png",
                 vertices=(
                     vec3.Vec3f(0.0, 0.0, 0.0),
-                    vec3.Vec3f(1.0, 0.0, 0.0),
-                    vec3.Vec3f(1.0, 1.0, 0.0),
-                    vec3.Vec3f(0.0, 1.0, 0.0)
+                    vec3.Vec3f(0.5, 0.0, 0.0),
+                    vec3.Vec3f(0.5, 0.5, 0.0),
+                    vec3.Vec3f(0.0, 0.5, 0.0)
                 ),
-                normal=vec3.Vec3f(0.0, 0.0, -1.0)
+                normal=vec3.Vec3f(0.0, 0.0, 1.0)
             )
         ]
 
@@ -65,6 +65,8 @@ class Test_01(object):
 
         for p in self.polygons:
             p.render()
+
+        glutSwapBuffers()
 
 
 if __name__ == "__main__":
