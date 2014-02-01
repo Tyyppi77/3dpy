@@ -27,7 +27,7 @@ class Test_01(object):
                     vec3.Vec3f(0.5, 0.5, 0.0),
                     vec3.Vec3f(0.0, 0.5, 0.0)
                 ),
-                normal=vec3.Vec3f(0.0, 0.0, 1.0)
+                normal=vec3.Vec3f(0.0, 0.0, -1.0)
             )
         ]
 

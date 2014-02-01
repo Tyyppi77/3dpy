@@ -47,6 +47,6 @@ class Texture2d(object):
 
         glTexImage2D(
             GL_TEXTURE_2D, 0, 3, texture_size[0], texture_size[1], 0,
-            GL_RGBA, GL_UNSIGNED_BYTE, texture_data
+            GL_RGB, GL_UNSIGNED_BYTE, texture_data
         )
         return True  # The loading succeeded
