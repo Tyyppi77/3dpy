@@ -42,7 +42,7 @@ class Vec3f(object):
 
     @staticmethod
     def cross(self, other):
-        res = vec3f()
+        res = Vec3f()
         res.x = self.y * other.z - self.z * other.y
         res.y = self.z * other.x - self.x * other.z
         res.z = self.x * other.y - self.y * other.x
