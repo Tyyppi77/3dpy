@@ -56,7 +56,7 @@ class Test_01(object):
         """
         Initializes the window and everything that it needs to initialize
         """
-        glutInit(1, ["foo"])
+        glutInit()
 
         glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
         glutInitWindowSize(800, 600)

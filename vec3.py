@@ -3,12 +3,16 @@ import math
 
 class Vec3f(object):
     """
-    Defines a class for 3d vector
+    Defines a class for 3d vector. This class also handles
+    all the vector math that is required.
     """
 
     def __init__(self, *args):
         """
-        Initializes the vector
+        Initializes the vector. In the *args there is either a vector,
+        that's values will be copied, or three floats that will be
+        assigned to their correct variables. If no arguments were got,
+        the vector is initialized with 3 zeros.
         """
         if len(args) == 1 and type(args[0]) == Vec3f:  # Got a vector in arguments
             self.x = args[0].x
