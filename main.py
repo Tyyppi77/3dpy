@@ -20,15 +20,25 @@ class Test_01(object):
 
         self.polygons = [
             polygon.TexturedPolygon(
-                "img/test_texture.png",
+                "img/test_texture1.png",
                 vertices=(
-                    vec3.Vec3f(0.0, 0.0, 0.0),
-                    vec3.Vec3f(0.5, 0.0, 0.0),
-                    vec3.Vec3f(0.5, 0.5, 0.0),
-                    vec3.Vec3f(0.0, 0.5, 0.0)
+                    vec3.Vec3f(0.0, 0.0, 1.0),
+                    vec3.Vec3f(0.5, 0.0, 1.0),
+                    vec3.Vec3f(0.5, 0.5, 1.0),
+                    vec3.Vec3f(0.0, 0.5, 1.0)
                 ),
                 normal=vec3.Vec3f(0.0, 0.0, -1.0)
-            )
+            ),
+            polygon.TexturedPolygon(
+                "img/test_texture1.png",
+                vertices=(
+                    vec3.Vec3f(0.0, 0.0, 1.0),
+                    vec3.Vec3f(-0.5, 0.0, 1.0),
+                    vec3.Vec3f(-0.5, 0.5, 1.0),
+                    vec3.Vec3f(0.0, 0.5, 1.0)
+                ),
+                normal=vec3.Vec3f(0.0, 0.0, -1.0)
+            ),
         ]
 
         glutMainLoop()
@@ -37,7 +47,7 @@ class Test_01(object):
         """
         Initalizes GL
         """
-        glClearColor(0.0, 0.0, 0.0, 0.0)
+        glClearColor(1.0, 1.0, 1.0, 0.0)
         glClearDepth(1.0)
         glMatrixMode(GL_PROJECTION | GL_MODELVIEW)
         glLoadIdentity()
@@ -49,7 +59,7 @@ class Test_01(object):
         glutInit(1, ["foo"])
 
         glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
-        glutInitWindowSize(700, 500)
+        glutInitWindowSize(800, 600)
         glutInitWindowPosition(0, 0)
 
         self.window = glutCreateWindow(b"OpenGL Test 01")

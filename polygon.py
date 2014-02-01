@@ -73,6 +73,12 @@ class TexturedPolygon(Polygon, object):
         elif len(args) == 1 and type(args[0]) == texture2.Texture2d:
             self.texture = args[0]
 
+    def clone(self):
+        """
+        Clones the polygon
+        """
+        return Polygon(self.texture, vertices=self.vertices, normal=self.normal)
+
     def setup_texture(self):
         """
         Sets the texture arguments and binds it before the rendering
