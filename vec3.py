@@ -2,8 +2,14 @@ import math
 
 
 class Vec3f(object):
+    """
+    Defines a class for 3d vector
+    """
 
     def __init__(self, *args):
+        """
+        Initializes the vector
+        """
         if len(args) == 1 and type(args[0]) == Vec3f:  # Got a vector in arguments
             self.x = args[0].x
             self.y = args[0].y
@@ -20,28 +26,57 @@ class Vec3f(object):
             self.z = 0.0
 
     def __add__(self, other):
+        """
+        Implements addition between vectors
+        """
         self.x += other.x
         self.y += other.y
         self.z += other.z
         return self
 
     def __sub__(self, other):
+        """
+        Implements subtraction between vectors
+        """
         self.x -= other.x
         self.y -= other.y
         self.z -= other.z
         return self
 
     def __mul__(self, other):
+        """
+        Implements multiplication
+        """
         self.x *= other
         self.y *= other
         self.z *= other
         return self
 
+    def __equals__(self, other):
+        """
+        Checks if a vector is equal to other vector
+        """
+        check_value = 0.0000001
+        if math.fabs(self.x - other.x) > check_value:
+            return False
+        if math.fabs(self.y - other.y) > check_value:
+            return False
+        if math.fabs(self.z - other.z) > check_value:
+            return False
+        return False
+
     def dot(self, other):
+        """
+        Calculates the dot-product between to vectors
+        """
         return self.x * other.x + self.y * other.y + self.z * other.z
 
     @staticmethod
     def cross(self, other):
+        """
+        Calculates the cross-product between to vectors and returns
+        it as a new vector
+        """
         res = Vec3f()
         res.x = self.y * other.z - self.z * other.y
         res.y = self.z * other.x - self.x * other.z
@@ -50,19 +85,32 @@ class Vec3f(object):
 
     @property
     def length(self):
+        """
+        Calculates the lenght of the vector. Note that this is un-squarerooted
+        so this basicaly equals to self.lenght_sq ** 2.
+        """
         return self.x * self.x + self.y * self.y + self.z * self.z
 
     @property
     def length_sq(self):
+        """
+        Transforms the lenght to a actual lenght of the vector.
+        """
         return math.sqrt(self.length)
 
     def normalize(self):
+        """
+        Normalizes the vector
+        """
         rcp = 1 / self.length
         self.x *= rcp
         self.y *= rcp
         self.z *= rcp
 
     def __str__(self):
+        """
+        Returns the vector's coordinates in a string
+        """
         return "%.6f %.6f %.6f" % (self.x, self.y, self.z)
 
 
