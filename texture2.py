@@ -31,7 +31,7 @@ class Texture2d(object):
         texture_file = iopen(filename)  # Opens the image file
 
         texture_size = texture_file.size
-        texture_data = texture_file.tostring("raw", "RGBA", 0, -1)
+        texture_data = texture_file.tostring()
 
         return self.create_texture(texture_data, texture_size)
 

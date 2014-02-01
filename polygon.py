@@ -7,8 +7,8 @@ import vec3
 GL_TEXTURE_COORDINATE_DEFAULTS = [
     vec3.Vec3f(0.0, 0.0, 0.0),
     vec3.Vec3f(1.0, 0.0, 0.0),
-    vec3.Vec3f(0.0, 1.0, 0.0),
-    vec3.Vec3f(1.0, 1.0, 0.0)
+    vec3.Vec3f(1.0, 1.0, 0.0),
+    vec3.Vec3f(0.0, 1.0, 0.0)
 ]
 
 
@@ -35,13 +35,13 @@ class Polygon(object):
         """
         Clones the polygon and returns the clone
         """
-        return Polygon(self.vertices, self.normal)
+        return Polygon(self.vertices, self.normal, self.color)
 
     def render(self):
         """
         Renders the polygon
         """
-        glBegin(GL_TRIANGLE_STRIP)
+        glBegin(GL_POLYGON)
         glNormal3d(self.normal.x, self.normal.y, self.normal.z)
         glColor3f(self.color[0], self.color[1], self.color[2])
 
@@ -78,6 +78,7 @@ class TexturedPolygon(Polygon, object):
         Sets the texture arguments and binds it before the rendering
         happens.
         """
+        #TODO: This could be moved to the Texture2 class
         glEnable(GL_TEXTURE_2D)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
@@ -94,7 +95,7 @@ class TexturedPolygon(Polygon, object):
 
         texture_coordinates = GL_TEXTURE_COORDINATE_DEFAULTS
 
-        glBegin(GL_TRIANGLE_STRIP)
+        glBegin(GL_POLYGON)
         glNormal3d(self.normal.x, self.normal.y, self.normal.z)
 
         #Loops through the vertices drawing them
