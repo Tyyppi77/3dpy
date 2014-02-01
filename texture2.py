@@ -4,7 +4,7 @@ from OpenGL.GL import *
 from PIL.Image import open as iopen
 
 
-class Texure2d(object):
+class Texture2d(object):
     """
     Defines a class for loading 2d textures from a file.
     """
