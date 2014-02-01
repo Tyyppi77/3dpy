@@ -52,7 +52,7 @@ class Vec3f(object):
         self.z *= other
         return self
 
-    def __equals__(self, other):
+    def __eq__(self, other):
         """
         Checks if a vector is equal to other vector
         """
@@ -63,7 +63,7 @@ class Vec3f(object):
             return False
         if math.fabs(self.z - other.z) > check_value:
             return False
-        return False
+        return True
 
     def dot(self, other):
         """
@@ -139,6 +139,6 @@ def test_02():
 def test_03():
     v1 = Vec3f(3, 4, 0)
     v2 = Vec3f(v1)
-    assert str(v1) == str(v2)
+    assert v1 == v2
 
 print(nose.run())  # Just uses the nose once. This should always print OK
