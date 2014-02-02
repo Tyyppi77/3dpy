@@ -33,7 +33,6 @@ class CubeObject(BaseObject, object):
     Defines a class for creating a 3D Cube. The cube gets a widht, a height
     and a depth. The polygons of the cube are calculated using these values.
     """
-    #TODO: Add coordinates to the cube???
 
     def __init__(self, position_vector=None, width=1.0, height=1.0, depth=1.0):
         """

@@ -6,9 +6,9 @@ import vec3
 
 GL_TEXTURE_COORDINATE_DEFAULTS = [
     vec3.Vec3f(0.0, 0.0, 0.0),
-    vec3.Vec3f(1.0, 0.0, 0.0),
+    vec3.Vec3f(0.0, 1.0, 0.0),
     vec3.Vec3f(1.0, 1.0, 0.0),
-    vec3.Vec3f(0.0, 1.0, 0.0)
+    vec3.Vec3f(1.0, 0.0, 0.0),
 ]
 
 
@@ -119,6 +119,9 @@ class TexturedPolygon(Polygon, object):
 
         texture_coordinates = GL_TEXTURE_COORDINATE_DEFAULTS
 
+        glEnable(GL_CULL_FACE)
+        glCullFace(GL_BACK)
+        glEnable(GL_NORMALIZE)
         glBegin(GL_POLYGON)
         glNormal3d(self.normal.x, self.normal.y, self.normal.z)
 
@@ -129,5 +132,6 @@ class TexturedPolygon(Polygon, object):
 
         glEnd()
         glDisable(GL_TEXTURE_2D)
+        glDisable(GL_NORMALIZE)
 
         return True

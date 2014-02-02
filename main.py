@@ -60,7 +60,7 @@ class Test_01(object):
         glViewport(0, 0, width, height)
         glMatrixMode(GL_PROJECTION | GL_MODELVIEW)
         glLoadIdentity()
-        glOrtho(-(width / 2), width / 2, height / 2, -(height / 2), -200, 200)
+        glOrtho(-(width / 2), width / 2, height / 2, -(height / 2), -400, 400)
 
     def init_GL(self):
         """
