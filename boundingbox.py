@@ -78,5 +78,3 @@ def test_02():
     box = BoundingBox(vec3.Vec3f(0, 0, 0), 100, 100, 100)
     sbox = BoundingBox(vec3.Vec3f(0, 0, 0), 100, 100, 100)
     assert box.contains(sbox) is True
-
-test_01()
