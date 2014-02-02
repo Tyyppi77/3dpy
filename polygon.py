@@ -35,6 +35,7 @@ class Polygon(object):
         Adds a vector point to the vertice list.
         """
         self.vertices.append(vector)
+        print(self.vertices)
 
     def clone(self):
         """
@@ -55,6 +56,8 @@ class Polygon(object):
         #Loops through the vertices drawing them
         for vertice in self.vertices:
             glVertex3d(vertice.x, vertice.y, vertice.z)
+
+        print(len(self.vertices))
 
         glEnd()
 
@@ -124,6 +127,7 @@ class TexturedPolygon(Polygon, object):
 
         #Loops through the vertices drawing them
         for index, vertice in enumerate(self.vertices):
+            print(index)
             glTexCoord2f(texture_coordinates[index].x, texture_coordinates[index].y)
             glVertex3d(vertice.x, vertice.y, vertice.z)
 

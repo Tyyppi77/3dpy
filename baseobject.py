@@ -63,9 +63,38 @@ class CubeObject(BaseObject, object):
         Creates a polygon for the cube. The method gets 4 corner points
         of the polygon, and the actual polygon is formed between these.
         """
-        p = polygon.Polygon()
-        p.add_vertice(self.verts[i1])
-        p.add_vertice(self.verts[i2])
-        p.add_vertice(self.verts[i3])
-        p.add_vertice(self.verts[i4])
-        self.polys.append(p)
+        vertices = (
+            self.verts[i1],
+            self.verts[i2],
+            self.verts[i3],
+            self.verts[i4]
+        )
+        self.polys.append(polygon.Polygon(vertices=vertices))
+
+
+class TexturedCubeObject(CubeObject, object):
+    """
+    Defines a class for a cube that has texture assigned to it.
+    The texture will be used in the polygons that the cube creates.
+    """
+
+    def __init__(self, *args, **kwargs):
+        """
+        Initializes the cube.
+        """
+        self.args = args
+
+        CubeObject.__init__(self, **kwargs)
+
+    def poly4(self, i1, i2, i3, i4):
+        """
+        Creates a polygon for the cube. The method gets 4 corner points
+        of the polygon, and the actual polygon is formed between these.
+        """
+        vertices = (
+            self.verts[i1],
+            self.verts[i2],
+            self.verts[i3],
+            self.verts[i4]
+        )
+        self.polys.append(polygon.TexturedPolygon(*self.args, vertices=vertices))

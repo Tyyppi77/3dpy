@@ -145,4 +145,5 @@ def test_03():
     v2 = Vec3f(v1)
     assert v1 == v2
 
-print(nose.run())  # Just uses the nose once. This should always print OK
+if __name__ == "__main__":
+    print(nose.run())  # Just uses the nose once. This should always print OK

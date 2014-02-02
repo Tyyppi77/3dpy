@@ -3,8 +3,6 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-import vec3
-import polygon
 import baseobject
 
 
@@ -43,7 +41,7 @@ class Test_01(object):
         #]
 
         self.polygons = [
-            baseobject.CubeObject()
+            baseobject.TexturedCubeObject("img/test_texture1.png")
             ]
 
         glutMainLoop()
