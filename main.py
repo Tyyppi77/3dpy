@@ -48,6 +48,13 @@ class Test_01(object):
                 width=100.0,
                 height=100.0,
                 depth=100.0
+            ),
+            baseobject.TexturedCubeObject(
+                "img/test_texture1.png",
+                position_vector=vec3.Vec3f(0.0, 0.0, -300.0),
+                width=-50.0,
+                height=-50.0,
+                depth=-50.0
             )
             ]
 
@@ -93,7 +100,7 @@ class Test_01(object):
         """
         glClear(GL_COLOR_BUFFER_BIT)
 
-        glRotatef(0.125, 1.0, 1.0, 1.0)
+        glRotatef(0.125, 1.0, 0.125, 0.0)
 
         for p in self.polygons:
             p.render()
