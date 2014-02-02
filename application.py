@@ -33,6 +33,10 @@ class Application(object):
         glutDisplayFunc(self.draw_scene)
         glutIdleFunc(self.idle_scene)
 
+        glutMouseFunc(self.on_mouse_event)
+        glutKeyboardFunc(self.on_keyboard_event)
+        glutReshapeFunc(self.on_window_reshape)
+
         self.initGL()
 
     def initGL(self):
@@ -61,5 +65,29 @@ class Application(object):
         This method should be reimplemented in a child class, since
         not doing so will broke the application. This method can simply
         call draw_scene, if it is wanted so.
+        """
+        raise NotImplementedError()
+
+    def on_mouse_event(self, button_id, state, x, y):
+        """
+        This method is called when the mouse is clicked.
+        This method should be reimplemented in a child class, since
+        not doing so will broke the application.
+        """
+        raise NotImplementedError()
+
+    def on_keyboard_event(self, key_char, x, y):
+        """
+        This method is called when a keyboard button is pressed.
+        This method should be reimplemented in a child class, since
+        not doing so will broke the application.
+        """
+        raise NotImplementedError()
+
+    def on_window_reshape(self, width, height):
+        """
+        This method is called when the window is resized.
+        This method should be reimplemented in a child class, since
+        not doing so will broke the application.
         """
         raise NotImplementedError()
