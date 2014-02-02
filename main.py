@@ -41,10 +41,24 @@ class Test_01(object):
         #]
 
         self.polygons = [
-            baseobject.TexturedCubeObject("img/test_texture1.png")
+            baseobject.TexturedCubeObject(
+                "img/test_texture1.png",
+                width=100.0,
+                height=100.0,
+                depth=50.0
+            )
             ]
 
         glutMainLoop()
+
+    def on_resize(self, width, height):
+        """
+        Resizes the window coordinates
+        """
+        glViewport(0, 0, width, height)
+        glMatrixMode(GL_PROJECTION | GL_MODELVIEW)
+        glLoadIdentity()
+        glOrtho(-(width / 2), width / 2, height / 2, -(height / 2), -100, 100)
 
     def init_GL(self):
         """
@@ -69,6 +83,7 @@ class Test_01(object):
 
         glutDisplayFunc(self.draw_scene)
         glutIdleFunc(self.draw_scene)
+        glutReshapeFunc(self.on_resize)
 
     def draw_scene(self):
         """
@@ -76,7 +91,7 @@ class Test_01(object):
         """
         glClear(GL_COLOR_BUFFER_BIT)
 
-        glRotatef(1.0, 1.0, 1.0, 1.0)
+        glRotatef(0.125, 1.0, 1.0, 1.0)
 
         for p in self.polygons:
             p.render()
