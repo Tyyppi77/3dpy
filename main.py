@@ -4,6 +4,7 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
 import baseobject
+import vec3
 
 
 class Test_01(object):
@@ -43,9 +44,10 @@ class Test_01(object):
         self.polygons = [
             baseobject.TexturedCubeObject(
                 "img/test_texture1.png",
+                position_vector=vec3.Vec3f(100, 200, 0),
                 width=100.0,
                 height=100.0,
-                depth=50.0
+                depth=100.0
             )
             ]
 
@@ -58,7 +60,7 @@ class Test_01(object):
         glViewport(0, 0, width, height)
         glMatrixMode(GL_PROJECTION | GL_MODELVIEW)
         glLoadIdentity()
-        glOrtho(-(width / 2), width / 2, height / 2, -(height / 2), -100, 100)
+        glOrtho(-(width / 2), width / 2, height / 2, -(height / 2), -200, 200)
 
     def init_GL(self):
         """

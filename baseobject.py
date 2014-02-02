@@ -35,11 +35,15 @@ class CubeObject(BaseObject, object):
     """
     #TODO: Add coordinates to the cube???
 
-    def __init__(self, width=1.0, height=1.0, depth=1.0):
+    def __init__(self, position_vector=None, width=1.0, height=1.0, depth=1.0):
         """
         Initializes the cube
         """
         BaseObject.__init__(self)
+
+        self.position = position_vector
+        if not position_vector:
+            self.position = vec3.Vec3f()
 
         self.verts = []
 
@@ -47,7 +51,11 @@ class CubeObject(BaseObject, object):
         for i in range(-1, 2, 2):
             for j in range(-1, 2, 2):
                 for k in range(-1, 2, 2):
-                    v = vec3.Vec3f(i * width / 2, j * height / 2, k * depth / 2)
+                    v = vec3.Vec3f(
+                        self.position.x + (i * width / 2),
+                        self.position.y + (j * height / 2),
+                        self.position.z + (k * depth / 2)
+                    )
                     self.verts.append(v)
 
         #Creates the polygons
