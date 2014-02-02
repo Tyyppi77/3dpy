@@ -27,6 +27,9 @@ class Polygon(object):
         self.normal = normal
         self.color = color
 
+        if not normal:
+            self.normal = vec3.Vec3f()
+
     def add_vertice(self, vector):
         """
         Adds a vector point to the vertice list.

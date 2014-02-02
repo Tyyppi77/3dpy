@@ -5,6 +5,7 @@ from OpenGL.GLUT import *
 
 import vec3
 import polygon
+import baseobject
 
 
 class Test_01(object):
@@ -18,28 +19,32 @@ class Test_01(object):
         self.init_window()
         self.init_GL()
 
+        #self.polygons = [
+            #polygon.TexturedPolygon(
+                #"img/test_texture1.png",
+                #vertices=(
+                    #vec3.Vec3f(0.0, 0.0, 1.0),
+                    #vec3.Vec3f(0.5, 0.0, 1.0),
+                    #vec3.Vec3f(0.5, 0.5, 1.0),
+                    #vec3.Vec3f(0.0, 0.5, 1.0)
+                #),
+                #normal=vec3.Vec3f(0.0, 0.0, -1.0)
+            #),
+            #polygon.TexturedPolygon(
+                #"img/test_texture1.png",
+                #vertices=(
+                    #vec3.Vec3f(0.0, 0.0, 1.0),
+                    #vec3.Vec3f(-0.5, 0.0, 1.0),
+                    #vec3.Vec3f(-0.5, 0.5, 1.0),
+                    #vec3.Vec3f(0.0, 0.5, 1.0)
+                #),
+                #normal=vec3.Vec3f(0.0, 0.0, -1.0)
+            #),
+        #]
+
         self.polygons = [
-            polygon.TexturedPolygon(
-                "img/test_texture1.png",
-                vertices=(
-                    vec3.Vec3f(0.0, 0.0, 1.0),
-                    vec3.Vec3f(0.5, 0.0, 1.0),
-                    vec3.Vec3f(0.5, 0.5, 1.0),
-                    vec3.Vec3f(0.0, 0.5, 1.0)
-                ),
-                normal=vec3.Vec3f(0.0, 0.0, -1.0)
-            ),
-            polygon.TexturedPolygon(
-                "img/test_texture1.png",
-                vertices=(
-                    vec3.Vec3f(0.0, 0.0, 1.0),
-                    vec3.Vec3f(-0.5, 0.0, 1.0),
-                    vec3.Vec3f(-0.5, 0.5, 1.0),
-                    vec3.Vec3f(0.0, 0.5, 1.0)
-                ),
-                normal=vec3.Vec3f(0.0, 0.0, -1.0)
-            ),
-        ]
+            baseobject.CubeObject()
+            ]
 
         glutMainLoop()
 
@@ -72,6 +77,8 @@ class Test_01(object):
         Draws the scene to the screen
         """
         glClear(GL_COLOR_BUFFER_BIT)
+
+        glRotatef(1.0, 1.0, 1.0, 1.0)
 
         for p in self.polygons:
             p.render()
