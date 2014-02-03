@@ -1,5 +1,6 @@
 import vec3
 import polygon
+import boundingbox
 
 
 class BaseObject(object):
@@ -44,6 +45,8 @@ class CubeObject(BaseObject, object):
         if not position_vector:
             self.position = vec3.Vec3f()
 
+        self.size = (width, height, depth)
+
         self.verts = []
 
         #Calculates the corners of the cube and adds them to the list
@@ -77,6 +80,12 @@ class CubeObject(BaseObject, object):
             self.verts[i4]
         )
         self.polys.append(polygon.Polygon(vertices=vertices))
+
+    def bounding_box(self):
+        """
+        Returns the cube as a bounding box.
+        """
+        return boundingbox.BoundingBox(self.position, self.size[0], self.size[1], self.size[2])
 
 
 class TexturedCubeObject(CubeObject, object):
