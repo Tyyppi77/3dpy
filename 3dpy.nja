@@ -1,0 +1,32 @@
+{
+  "mainFile": "C:/Users/Olli-Samuli/workspace/python/3dpy/main.py", 
+  "use-tabs": false, 
+  "venv": "", 
+  "relatedProjects": [], 
+  "name": "3dpy", 
+  "license": "", 
+  "url": "", 
+  "pythonPath": "C:\\Python33\\pythonw.exe", 
+  "preExecScript": "", 
+  "additional_builtins": [], 
+  "programParams": "", 
+  "indentation": 4, 
+  "PYTHONPATH": "", 
+  "supported-extensions": [
+    ".py", 
+    ".html", 
+    ".jpg", 
+    ".png", 
+    ".ui", 
+    ".css", 
+    ".json", 
+    ".js", 
+    ".ini", 
+    ".pyw", 
+    ".qss", 
+    ".cs"
+  ], 
+  "project-type": "", 
+  "postExecScript": "", 
+  "description": ""
+}

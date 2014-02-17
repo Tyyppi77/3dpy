@@ -145,7 +145,7 @@ class Test_02(application.Application):
         """
         glClear(GL_COLOR_BUFFER_BIT)
 
-        glRotatef(0.125, 1.0, 0.125, 0.0)
+        glRotatef(1.0, 1.0, 1.0, 1.0)
 
         for p in self.objects:
             p.render()
